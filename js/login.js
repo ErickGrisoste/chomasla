@@ -8,6 +8,12 @@ botao.addEventListener('click',
 
         const logado = usuarios.find(user => user.login === login && user.senha === senha);
 
+        if(logado){
+            localStorage.setItem('userLogado', login);
+            window.location.href = "dashboard.html";
+        } else{
+            document.getElementById('mensagemErro').textContent = "Login e senha incorretos.";
+        }
 
     }
 );
